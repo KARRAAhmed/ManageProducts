@@ -1,0 +1,66 @@
+<mvc:View controllerName="opensap.manageproducts.ManageProducts.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout">>
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
+		<semantic:titleHeading>
+			<Title id="_IDEGen_title0" text="{i18n>worklistTitle}" level="H2"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<IconTabBar id="iconTabBar" select="onQuickFilter" expandable="false" applyContentPadding="false">
+				<items>
+					<IconTabFilter id="_IDEGen_icontabfilter0" key="all" showAll="true" count="{i18n>WorklistFilterProductsAllCount}" text="{i18n>WorklistFilterProductsAll}"/>
+					<IconTabSeparator id="_IDEGen_icontabseparator0"/>
+					<IconTabFilter id="_IDEGen_icontabfilter1" key="cheap" icon="sap-icon://waiver" iconColor="Positive" count="{worklistView>/cheap}" text="{i18n>WorklistFilterCheap}"/>
+					<IconTabFilter id="_IDEGen_icontabfilter2" key="moderate" icon="sap-icon://loan" iconColor="Critical" count="{worklistView>/moderate}" text="{i18n>Moderate}"/>
+					<IconTabFilter id="_IDEGen_icontabfilter3" key="expensive" icon="sap-icon://money-bills" iconColor="Negative" count="{worklistView>/expensive}"
+						text="{i18n>WorklistFilterExpensive}"/>
+				</items>
+				<content>
+					<Table id="table" width="auto" class="sapUiResponsiveMargin"
+						items="{ path: '/ProductSet', sorter: { path: 'ProductID', descending: false }, parameters: { expand: 'ToSupplier' } }"
+						noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+						updateFinished=".onUpdateFinished">
+						<headerToolbar>
+							<OverflowToolbar id="_IDEGen_overflowtoolbar0">
+								<Title id="tableHeader" text="{worklistView>/worklistTableTitle}" level="H3"/>
+								<ToolbarSpacer id="_IDEGen_toolbarspacer0"/>
+								<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search=".onSearch">
+									<layoutData>
+										<OverflowToolbarLayoutData id="_IDEGen_overflowtoolbarlayoutdata0" maxWidth="200px" priority="NeverOverflow"/>
+									</layoutData>
+								</SearchField>
+								<Button id="addButton" icon="sap-icon://add" press="onAdd"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="nameColumn">
+								<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+							</Column>
+							<Column id="supplierNameColumn" demandPopin="true" minScreenWidth="Tablet">
+								<Text id="_IDEGen_text0" text="{i18n>tableSupplierColumnTitle}"/>
+							</Column>
+							<Column id="webAddressColumn" demandPopin="false" minScreenWidth="Tablet">
+								<Text id="_IDEGen_text1" text="{i18n>tableSupplierWebAddressColumnTitle}"/>
+							</Column>
+							<Column id="unitNumberColumn" hAlign="End">
+								<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="_IDEGen_columnlistitem0" type="Navigation" press=".onPress">
+								<cells>
+									<ObjectIdentifier id="_IDEGen_objectidentifier0" title="{ProductID}" text="{Name}" titleActive="true" titlePress="onShowDetailPopover"/>
+									<Text id="_IDEGen_text2" text="{SupplierName}"/>
+									<Link id="_IDEGen_link0" text="{ToSupplier/WebAddress}" href="{ToSupplier/WebAddress}" target="_blank"/>
+									<ObjectNumber id="_IDEGen_objectnumber0" number="{ path: 'Price', formatter: '.formatter.numberUnit' }" unit="{CurrencyCode}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+	</semantic:SemanticPage>
+</mvc:View>

@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core">
+	<ResponsivePopover id="_IDEGen_responsivepopover0" title="{i18n>dimensionsTitle}"
+		class="sapUiPopupWithPadding">
+		<content>
+			<l:Grid id="_IDEGen_grid0">
+				<l:content>
+					<Text id="_IDEGen_text0" text="{i18n>productWidth}: {
+							path: 'Width', 
+							formatter: '.formatter.numberUnit'
+						} {DimUnit}" />
+					<Text id="_IDEGen_text1" text="{i18n>productDepth}: {
+							path: 'Depth',
+							formatter: '.formatter.numberUnit'
+						} {DimUnit}" />
+					<Text id="_IDEGen_text2" text="{i18n>productHeight}: {
+							path: 'Height',
+							formatter: '.formatter.numberUnit'
+						} {DimUnit}" />
+					<Text id="_IDEGen_text3" text="{i18n>productWeight}: {
+							path: 'WeightMeasure',
+							formatter: '.formatter.numberUnit'
+						} {WeightUnit}" />
+				</l:content>
+			</l:Grid>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

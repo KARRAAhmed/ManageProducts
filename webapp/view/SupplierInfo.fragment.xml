@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form">
+	<Panel id="_IDEGen_panel0"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		headerText="{i18n>supplierTitle}"
+		expandable="{device>/system/phone}"
+		expanded="false">
+		<content>
+			<List id="supplierList">
+				<items>
+					<StandardListItem id="_IDEGen_standardlistitem0" icon="sap-icon://building" title="{ToSupplier/CompanyName}"/>
+					<StandardListItem id="_IDEGen_standardlistitem1" icon="sap-icon://email" title="{ToSupplier/EmailAddress}"/>
+					<StandardListItem id="_IDEGen_standardlistitem2" icon="sap-icon://world" title="{ToSupplier/WebAddress}"/>
+					<StandardListItem id="_IDEGen_standardlistitem3" icon="sap-icon://phone" title="{ToSupplier/PhoneNumber}"/>
+					<StandardListItem id="_IDEGen_standardlistitem4" icon="sap-icon://map" title="{ToSupplier/Address/City}"/>
+				</items>
+			</List>
+		</content>
+	</Panel>
+</core:FragmentDefinition>
